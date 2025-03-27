@@ -1,4 +1,5 @@
 # Books Library
+![Screenshot 2025-03-27 202642](https://github.com/user-attachments/assets/62722e1b-5268-4ce8-a38f-387a98760e53)
 
 A simple, responsive web application that allows users to search, view, and sort books from an external API. The app displays book details such as the title, author, publisher, and publish date. Users can also switch between list and grid views for better readability.
 
