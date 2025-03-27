@@ -1,0 +1,446 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --size: 20px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: hsl(0 0% 5%);
+  overflow: hidden;
+}
+
+.el {
+  background: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #ffffff 72.0000010728836deg, #ffffff 144.0000021457672deg, #ffffff 216.00000858306885deg, #ffffff 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+  width: 100%;
+  height: 100%;
+  mask:
+    radial-gradient(circle at 5% 5%, white 1px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+  position: absolute;
+  opacity: 0.6;
+}
+
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
+
+.first {
+  position: absolute;
+  width: 806px;
+  height: 88px;
+  left: calc(50% - 806px/2 + 2px);
+  top: calc(56% - 88px/2 - 218px);
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 96px;
+  line-height: 88px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, #FFFFFF 14.2%, #535353 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: "Geist Mono";
+  font-weight: 500;
+}
+
+.second {
+  position: absolute;
+  width: 983px;
+  height: 95px;
+  left: calc(50% - 983px/2 + 1.5px);
+  top: calc(56% - 88px/2 - 130px);
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 96px;
+  line-height: 88px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, #FFFFFF 14.2%, #535353 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: "Geist Mono";
+  font-weight: 500;
+}
+
+.star-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(#fff 50%, rgba(255, 255, 255, 0.6) 80%, rgba(0, 0, 0, 0)), linear-gradient(90deg, hsl(0, 100%, 63%), hsl(90, 100%, 63%), hsl(210, 100%, 63%), hsl(195, 100%, 63%), hsl(270, 100%, 63%));
+  background-size: 200%;
+  background-clip: padding-box, border-box, border-box;
+  background-origin: border-box;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  color: white;
+  margin-top: 5px;
+
+}
+
+.star-button:hover {
+  transform: scale(1.05);
+}
+
+.star-button:active {
+  transform: scale(0.95);
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.button-text {
+  margin-left: 0.5rem;
+}
+
+.button-stats {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.star-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.star-button:hover .star-icon {
+  color: #fbbf24;
+}
+
+.star-count {
+  margin-left: 0.25rem;
+  font-weight: 500;
+  color: black;
+}
+
+.star-button:before {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  z-index: 0;
+  width: 60%;
+  height: 20%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(90deg, hsl(0, 100%, 63%), hsl(90, 100%, 63%), hsl(210, 100%, 63%), hsl(195, 100%, 63%), hsl(270, 100%, 63%));
+  filter: blur(1.6rem);
+  animation: rainbow 1s infinite linear;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .star-button {
+    background-image: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, hsl(0, 100%, 63%), hsl(90, 100%, 63%), hsl(210, 100%, 63%), hsl(195, 100%, 63%), hsl(270, 100%, 63%));
+    color: white;
+  }
+
+  .button-text {
+    color: white;
+  }
+
+  .star-icon {
+    color: #9ca3af;
+  }
+
+  .star-button:hover .star-icon {
+    color: #fbbf24;
+  }
+
+  .star-count {
+    color: white;
+  }
+}
+
+.gitbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50px;
+}
+
+.button {
+  --black-700: hsla(0 0% 12% / 1);
+  --border_radius: 9999px;
+  --transtion: 0.3s ease-in-out;
+  --offset: 2px;
+  cursor: pointer;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform-origin: center;
+  /* Reduce padding for a smaller button */
+  padding: 0.7rem 1.6rem;
+  /* Adjust as needed */
+  background-color: transparent;
+
+  border: none;
+  border-radius: var(--border_radius);
+  transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+  transition: transform var(--transtion);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-700);
+  border-radius: var(--border_radius);
+  box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+    0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+    0 0 0 calc(var(--active, 0) * 0.375rem) hsla(258, 9%, 21%, 0.75);
+  transition: all var(--transtion);
+  z-index: 0;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 22%, 0.099);
+  background-image: radial-gradient(at 51% 89%,
+      rgb(108, 93, 128) 0px,
+      transparent 50%),
+    radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
+  background-position: top;
+
+  opacity: var(--active, 0);
+  border-radius: var(--border_radius);
+  transition: opacity var(--transtion);
+  z-index: 2;
+}
+
+.button:is(:hover, :focus-visible) {
+  --active: 1;
+}
+
+.button:active {
+  transform: scale(1);
+}
+
+.button .dots_border {
+  --size_border: calc(100% + 2px);
+
+  overflow: hidden;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: var(--size_border);
+  height: var(--size_border);
+  background-color: transparent;
+
+  border-radius: var(--border_radius);
+  z-index: -10;
+}
+
+.button .dots_border::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(0deg);
+
+  width: 100%;
+  height: 2rem;
+  background-color: white;
+
+  mask: linear-gradient(transparent 0%, white 120%);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button .sparkle {
+  position: relative;
+  z-index: 10;
+
+  width: 1.5rem;
+}
+
+.button .sparkle .path {
+  fill: currentColor;
+  stroke: currentColor;
+
+  transform-origin: center;
+
+  color: hsl(0, 0%, 100%);
+}
+
+.button:is(:hover, :focus) .sparkle .path {
+  animation: path 1.5s linear 0.5s infinite;
+}
+
+.button .sparkle .path:nth-child(1) {
+  --scale_path_1: 1.2;
+}
+
+.button .sparkle .path:nth-child(2) {
+  --scale_path_2: 1.2;
+}
+
+.button .sparkle .path:nth-child(3) {
+  --scale_path_3: 1.2;
+}
+
+@keyframes path {
+
+  0%,
+  34%,
+  71%,
+  100% {
+    transform: scale(1);
+  }
+
+  17% {
+    transform: scale(var(--scale_path_1, 1));
+  }
+
+  49% {
+    transform: scale(var(--scale_path_2, 1));
+  }
+
+  83% {
+    transform: scale(var(--scale_path_3, 1));
+  }
+}
+
+.button .text_button {
+  position: relative;
+  z-index: 10;
+
+  background-image: linear-gradient(90deg,
+      hsla(0 0% 100% / 1) 0%,
+      hsla(0 0% 100% / var(--active, 0)) 120%);
+  background-clip: text;
+  color: transparent;
+  font-size: 0.8rem;
+}
+
+.trybtn {
+  position: absolute;
+  margin-top: 50px;
+
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 380px;
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 50;
+}
+
+.container .glass {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  margin: 0 -45px;
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+  cursor: pointer;
+}
+
+.container:hover .glass {
+  transform: rotate(0deg);
+  margin: 0 10px;
+}
+
+.container .glass::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.container .glass svg {
+  font-size: 2.5em;
+  fill: #fff;
+  margin-bottom: 20px;
+}
